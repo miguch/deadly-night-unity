@@ -12,8 +12,10 @@ public class SubtitleBehavior : PlayableBehaviour
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
         TextMeshProUGUI textMeshProUGUI = playerData as TextMeshProUGUI;
-        textMeshProUGUI.text = subtitleText;
-        textMeshProUGUI.color = new Color(subtitleColor.r, subtitleColor.g, subtitleColor.b, info.weight);
-
+        if (textMeshProUGUI)
+        {
+            textMeshProUGUI.text = subtitleText;
+            textMeshProUGUI.color = new Color(subtitleColor.r, subtitleColor.g, subtitleColor.b, info.weight);
+        }
     }
 }

@@ -2086,6 +2086,7 @@ Transform:
   - {fileID: 413831372}
   - {fileID: 1848782852}
   - {fileID: 1851468919}
+  - {fileID: 711375643}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4399,7 +4400,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 456998399
+    rgba: 3369851867
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -5816,7 +5817,7 @@ GameObject:
   - component: {fileID: 711375643}
   - component: {fileID: 711375644}
   m_Layer: 0
-  m_Name: EntranceLight
+  m_Name: CutsceneLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5834,8 +5835,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1268343819}
-  m_RootOrder: 0
+  m_Father: {fileID: 237575648}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 63.311, y: 0, z: 0}
 --- !u!108 &711375644
 Light:
@@ -14447,8 +14448,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 711375643}
+  m_Children: []
   m_Father: {fileID: 1848782852}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22735,7 +22735,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3741319167
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3

@@ -46,14 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561ee0f3fbc14d3448a92522e815b435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementActive: 1
   maxSpeed: 100
   rb: {fileID: 2127642733139730540}
   grounded: 0
   jump: 0
   groundingDistance: 3
   groundCheckInterval: 0.2
-  jumpButton: 32
   jumpForce: 5
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 0
   characterCamera: {fileID: 2127642733647216585}
   mouseSensitivity: 200
   xAxisClampAngle: 80
@@ -200,7 +203,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2127642733647216587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb8263e5effaa54d9f7341f25a759b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 923b3181fdc7549fdbe168fc96ff59a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   followTransform: {fileID: 2127642733139730541}

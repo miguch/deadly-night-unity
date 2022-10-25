@@ -18,4 +18,5 @@ public class SubtitleBehavior : PlayableBehaviour
             textMeshProUGUI.color = new Color(subtitleColor.r, subtitleColor.g, subtitleColor.b, info.weight);
         }
     }
+
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3381300}
   - component: {fileID: 2381300}
   - component: {fileID: 9581300}
+  - component: {fileID: 530598978818711720}
   m_Layer: 0
   m_Name: Screaming statue
   m_TagString: Untagged
@@ -104,3 +105,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &530598978818711720
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 42.487793, y: 74.36409, z: 87.50758}
+  m_Center: {x: 10.730211, y: 0.000007629396, z: -0.000011444091}

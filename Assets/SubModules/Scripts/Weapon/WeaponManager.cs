@@ -4,26 +4,62 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-  [SerializeField] private bool active = false;
-  [SerializeField] bool equipped = false;
+  [SerializeField] private bool rangeActive = false;
+  [SerializeField] private bool meleeActive = false;
+  [SerializeField] private bool rangeEquipped = false;
+  [SerializeField] private bool meleeEquipped = false;
 
   [SerializeField] AnimationHelper animationHelper;
 
-
-  public bool Active
+  public bool RangeActive
   {
-    get => active;
+    get => rangeActive;
     set
     {
-      if (!active && value)
+      if (!rangeActive && value)
       {
-        animationHelper.SetAnimationVariableName("GetWeapon");
-        animationHelper.SetTrigger();
-        equipped = true;
-        animationHelper.SetAnimationVariableName("isEquipped");
-        animationHelper.SetBool(equipped);
+        // unequip current weapon and equip new weapon
+        MeleeEquipped = false;
+        RangeEquipped = true;
       }
-      active = value;
+      rangeActive = value;
+    }
+  }
+
+  public bool MeleeActive
+  {
+    get => meleeActive;
+    set
+    {
+      if (!meleeActive && value)
+      {
+        // unequip current weapon and equip new weapon
+        RangeEquipped = false;
+        MeleeEquipped = true;
+      }
+      meleeActive = value;
+    }
+  }
+
+  public bool RangeEquipped
+  {
+    get => rangeEquipped;
+    set
+    {
+      animationHelper.SetAnimationVariableName("isRangeEquipped");
+      animationHelper.SetBool(value);
+      rangeEquipped = value;
+    }
+  }
+
+  public bool MeleeEquipped
+  {
+    get => meleeEquipped;
+    set
+    {
+      animationHelper.SetAnimationVariableName("isMeleeEquipped");
+      animationHelper.SetBool(value);
+      meleeEquipped = value;
     }
   }
 
@@ -32,9 +68,23 @@ public class WeaponManager : MonoBehaviour
   {
     if (Input.GetButtonDown("Equip"))
     {
-      equipped = !equipped;
-      animationHelper.SetAnimationVariableName("isEquipped");
-      animationHelper.SetBool(equipped);
+      if (MeleeEquipped)
+      {
+        MeleeEquipped = false;
+        if (rangeActive)
+        {
+          RangeEquipped = true;
+        }
+      }
+      else if (rangeEquipped)
+      {
+        RangeEquipped = false;
+      }
+      else if (meleeActive)
+      {
+        MeleeEquipped = true;
+      }
     }
   }
+
 }

@@ -9026,6 +9026,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8319809820758044744, guid: cf8ee8046afb8424d8f9eb9872ad9b98, type: 3}
   m_PrefabInstance: {fileID: 848288104}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &877652591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1077419662316846, guid: 4a2995c2dfa5ee447bb99406df3fd57e, type: 3}
+  m_PrefabInstance: {fileID: 1661741020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &877652595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877652591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d310ef441d40f418cb020f5ecfda6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
+  damageAmount: 0
+  damageableSets: 
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &879125993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25353,6 +25376,63 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 3.6, z: 1.3}
   m_Center: {x: 0, y: 1.8, z: 0}
+--- !u!114 &2098576932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728919765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c68ebef937c844a94d09be93be8e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1661741021}
+--- !u!114 &2098576933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728919765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e869432350e1dc44290349ca95cc358f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1661741021}
+  mover: {fileID: 2098576934}
+  damager: {fileID: 877652595}
+  onInteractionComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onCleanUp:
+    m_PersistentCalls:
+      m_Calls: []
+  shouldCleanUp: 0
+  cleanupDelay: 0
+  interactionWithPlayer: 0
+--- !u!114 &2098576934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728919765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cbbb6bb03accd49974f67ec88b5472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  arrivedAtDestination:
+    m_PersistentCalls:
+      m_Calls: []
+  agent: {fileID: 0}
 --- !u!1001 &2100201648
 PrefabInstance:
   m_ObjectHideFlags: 0

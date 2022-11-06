@@ -23,6 +23,7 @@ namespace com.ImmersiveMedia.CharacterControl
         [SerializeField] bool shouldCleanUp; // Whether this character should be cleaned up after death
         [SerializeField] float cleanupDelay; // The amount of time to wait before cleaning up the character
 
+
         private Vector3 selectedInteractableReferencePosition; // The position of the interactable this character has selected to interact with
         protected CharacterInteractable selectedInteractable; // The interactable currently selected by the character for interaction
 

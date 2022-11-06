@@ -18,6 +18,9 @@ namespace com.ImmersiveMedia.Damage
         [SerializeField] UnityEvent onDeath; // An event to fire when an object is destroyed
 
         [SerializeField] List<DamageableSet> damagableSets; // The list of Damageable sets this object belongs to.
+        [SerializeField] float damageDebounceTime; // The amount of seconds in which damage can be triggered once, this is because every time the troll swing the mace it will collide with player twice
+
+        private Debounce damageDebounce = new Debounce();
 
         private float health; // The current health of the the object
 
@@ -42,7 +45,9 @@ namespace com.ImmersiveMedia.Damage
         /// <param name="sets">The sets the damaging object belongs to</param>
         public void Damage(float damageAmount, List<DamageableSet> sets)
         {
-            Debug.Log("hit");
+            if (damageDebounce.Wait) {
+                return;
+            }
             // If this object is currently damageable
             if (activated)
             {
@@ -54,9 +59,11 @@ namespace com.ImmersiveMedia.Damage
                 // If health is less than zero raise the death event
                 if (health <= 0f)
                 {
+                    Debug.Log("dead!");
                     onDeath?.Invoke();
                 }
             }
+            StartCoroutine(damageDebounce.Invoke(damageDebounceTime));
         }
 
         public float Health { get => health; }

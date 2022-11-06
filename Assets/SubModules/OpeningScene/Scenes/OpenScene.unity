@@ -3555,7 +3555,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456255028}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3580,7 +3580,8 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
-  damagableSets: 
+  damagableSets: 02000000
+  damageDebounceTime: 0.8
 --- !u!1001 &456516061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9423,8 +9424,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
-  damageAmount: 0
-  damageableSets: 
+  damageAmount: 20
+  damageableSets: 02000000
   onDamage:
     m_PersistentCalls:
       m_Calls: []

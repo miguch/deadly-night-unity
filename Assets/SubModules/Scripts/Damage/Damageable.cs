@@ -42,6 +42,7 @@ namespace com.ImmersiveMedia.Damage
         /// <param name="sets">The sets the damaging object belongs to</param>
         public void Damage(float damageAmount, List<DamageableSet> sets)
         {
+            Debug.Log("hit");
             // If this object is currently damageable
             if (activated)
             {

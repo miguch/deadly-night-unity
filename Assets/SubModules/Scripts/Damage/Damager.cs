@@ -23,6 +23,7 @@ namespace com.ImmersiveMedia.Damage
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log("collide");
             if (Activated)
             {
                 // If the object that was hit has a damageble script it can be damaged

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using com.ImmersiveMedia.Damage;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class WeaponManager : MonoBehaviour
 
   [SerializeField] public Damager rangeDamager;
   [SerializeField] public Damager meleeDamager;
+
+  [SerializeField] public UnityEvent onMeleeEquip;
+  [SerializeField] public UnityEvent onRangeEquip;
+
+  [SerializeField] public UnityEvent onMeleeAttack;
+  [SerializeField] public UnityEvent onRangeAttack;
 
   [SerializeField] Animator animator;
 
@@ -50,6 +57,10 @@ public class WeaponManager : MonoBehaviour
     get => rangeEquipped;
     set
     {
+      if (!rangeEquipped && value)
+      {
+        onRangeEquip?.Invoke();
+      }
       animator.SetBool("isRangeEquipped", value);
       rangeEquipped = value;
     }
@@ -60,6 +71,10 @@ public class WeaponManager : MonoBehaviour
     get => meleeEquipped;
     set
     {
+      if (!meleeEquipped && value)
+      {
+        onMeleeEquip?.Invoke();
+      }
       animator.SetBool("isMeleeEquipped", value);
       meleeEquipped = value;
     }
@@ -92,6 +107,7 @@ public class WeaponManager : MonoBehaviour
       if (meleeEquipped && !animator.GetCurrentAnimatorStateInfo(0).IsName("MeleeAttack") && !animator.GetNextAnimatorStateInfo(0).IsName("MeleeAttack"))
       {
         animator.SetTrigger("meleeAttack");
+        onMeleeAttack?.Invoke();
       }
     }
     if (meleeEquipped)

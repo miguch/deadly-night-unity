@@ -85,6 +85,9 @@ namespace com.ImmersiveMedia.CharacterControl
                     lastFrameInteraction = selectedInteractable.InteractionOption; // Need to keep track of the last frames interaction so we can determine when the interaction is over
                 }
 
+                // damager only activated when actually attacking
+                damager.Activated = anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"); 
+
                 anim.SetBool("Stopped", !mover.MovementRoutineActive); // Set the value of stopped on the animator to whatever the mover's value is
             }
 

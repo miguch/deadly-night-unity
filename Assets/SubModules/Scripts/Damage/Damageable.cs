@@ -22,7 +22,7 @@ namespace com.ImmersiveMedia.Damage
 
         private Debounce damageDebounce = new Debounce();
 
-        private float health; // The current health of the the object
+        public float health; // The current health of the the object
 
         private void Awake()
         {

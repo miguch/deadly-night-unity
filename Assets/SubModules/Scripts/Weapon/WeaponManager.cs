@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using com.ImmersiveMedia.Damage;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -9,7 +10,10 @@ public class WeaponManager : MonoBehaviour
   [SerializeField] private bool rangeEquipped = false;
   [SerializeField] private bool meleeEquipped = false;
 
-  [SerializeField] AnimationHelper animationHelper;
+  [SerializeField] public Damager rangeDamager;
+  [SerializeField] public Damager meleeDamager;
+
+  [SerializeField] Animator animator;
 
   public bool RangeActive
   {
@@ -46,8 +50,7 @@ public class WeaponManager : MonoBehaviour
     get => rangeEquipped;
     set
     {
-      animationHelper.SetAnimationVariableName("isRangeEquipped");
-      animationHelper.SetBool(value);
+      animator.SetBool("isRangeEquipped", value);
       rangeEquipped = value;
     }
   }
@@ -57,8 +60,7 @@ public class WeaponManager : MonoBehaviour
     get => meleeEquipped;
     set
     {
-      animationHelper.SetAnimationVariableName("isMeleeEquipped");
-      animationHelper.SetBool(value);
+      animator.SetBool("isMeleeEquipped", value);
       meleeEquipped = value;
     }
   }
@@ -84,6 +86,17 @@ public class WeaponManager : MonoBehaviour
       {
         MeleeEquipped = true;
       }
+    }
+    if (Input.GetButtonDown("Fire1"))
+    {
+      if (meleeEquipped && !animator.GetCurrentAnimatorStateInfo(0).IsName("MeleeAttack") && !animator.GetNextAnimatorStateInfo(0).IsName("MeleeAttack"))
+      {
+        animator.SetTrigger("meleeAttack");
+      }
+    }
+    if (meleeEquipped)
+    {
+      meleeDamager.Activated = animator.GetCurrentAnimatorStateInfo(0).IsName("MeleeAttack") || animator.GetNextAnimatorStateInfo(0).IsName("MeleeAttack");
     }
   }
 

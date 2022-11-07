@@ -22,7 +22,7 @@ namespace com.ImmersiveMedia.Damage
         public bool Activated { get => activated; set => activated = value; }
 
         private void OnTriggerEnter(Collider other)
-        {
+        {           
             if (Activated)
             {
                 // If the object that was hit has a damageble script it can be damaged

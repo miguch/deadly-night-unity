@@ -20,6 +20,19 @@ MC is a traveller exploring an ancient cemetery site. He witnessed another trave
 
 ### Gameplay
 
+- The player must walk around the environment to look for equipments
+  - Weapons are placed in the scene for the player to pick up
+    - Weapons includes:
+      - Range weapon (rifle)
+      - Melee weapon (katana)
+  - Weapons can be switched or unequipped by pressing E
+- The player must kill the giant troll
+  - Rifle can be used to shoot at the troll
+  - Katana can be used to attack the troll in short distance
+- The player must manage to stay alive
+  - The troll attacks the player when the distance is close
+- The player can interact with objects like doors to search for hidden items
+
 ### Visuals
 
 - First person game
@@ -29,3 +42,6 @@ MC is a traveller exploring an ancient cemetery site. He witnessed another trave
 
 ### Touchstones
 
+- Tomb Raider
+- Doctor Who
+- Troll scene in Harry Potter and the Sorcerer's Stone

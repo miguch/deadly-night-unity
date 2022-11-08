@@ -50,10 +50,10 @@ namespace com.ImmersiveMedia.CharacterControl
         protected virtual void Update()
         {
             // Debug so that we can test killing characters
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                KillCharacter();
-            }
+            // if (Input.GetKeyDown(KeyCode.Space))
+            // {
+            //     KillCharacter();
+            // }
 
             if (!dead)
             {

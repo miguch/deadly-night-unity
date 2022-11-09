@@ -3612,9 +3612,12 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  onAttacked:
+    m_PersistentCalls:
+      m_Calls: []
+  onAttackedProbability: 0
   damagableSets: 02000000
   damageDebounceTime: 0.8
-  health: 0
 --- !u!1001 &456516061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17304,13 +17307,13 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1312789988}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
+        m_MethodName: PlayDelayed
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -17334,13 +17337,13 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1312789988}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
+        m_MethodName: PlayDelayed
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -24042,9 +24045,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onAttacked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2098576932}
+        m_TargetAssemblyTypeName: AnimationHelper, Assembly-CSharp
+        m_MethodName: SetAnimationVariableName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Attacked
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2098576932}
+        m_TargetAssemblyTypeName: AnimationHelper, Assembly-CSharp
+        m_MethodName: SetTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onAttackedProbability: 0.4
   damagableSets: 01000000
-  damageDebounceTime: 2
-  health: 0
+  damageDebounceTime: 0.8
 --- !u!65 &1765140837
 BoxCollider:
   m_ObjectHideFlags: 0

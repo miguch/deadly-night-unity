@@ -17,12 +17,16 @@ namespace com.ImmersiveMedia.Damage
 
         [SerializeField] UnityEvent onDeath; // An event to fire when an object is destroyed
 
+        [SerializeField] UnityEvent onAttacked;   
+        
+         [SerializeField] float onAttackedProbability = 0.0f; // the probability of damage triggering onAttacked
+
         [SerializeField] List<DamageableSet> damagableSets; // The list of Damageable sets this object belongs to.
         [SerializeField] float damageDebounceTime; // The amount of seconds in which damage can be triggered once, this is because every time the troll swing the mace it will collide with player twice
 
         private Debounce damageDebounce = new Debounce();
 
-        public float health; // The current health of the the object
+        private float health; // The current health of the the object
 
         private void Awake()
         {
@@ -43,11 +47,13 @@ namespace com.ImmersiveMedia.Damage
         /// </summary>
         /// <param name="damageAmount">The amount to damage this object</param>
         /// <param name="sets">The sets the damaging object belongs to</param>
-        public void Damage(float damageAmount, List<DamageableSet> sets)
+        /// <param name="onDamage">onDamage event from damager, only invoked when damage success(not waiting)</param>
+        public bool Damage(float damageAmount, List<DamageableSet> sets, UnityEvent onDamage)
         {
             if (damageDebounce.Wait) {
-                return;
+                return false;
             }
+            onDamage?.Invoke();
             // If this object is currently damageable
             if (activated)
             {
@@ -61,9 +67,14 @@ namespace com.ImmersiveMedia.Damage
                 {
                     Debug.Log("dead!");
                     onDeath?.Invoke();
+                } else {
+                    if (Random.Range(0.0f, 1.0f) < onAttackedProbability) {
+                        onAttacked?.Invoke();
+                    }
                 }
             }
             StartCoroutine(damageDebounce.Invoke(damageDebounceTime));
+            return true;
         }
 
         public float Health { get => health; }

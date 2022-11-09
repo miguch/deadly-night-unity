@@ -10,13 +10,10 @@ public class Debounce
 
   public bool Wait { get => isWaiting; }
 
-  private float waitTime = 0;
-
   public IEnumerator Invoke(float time)
   {
-    waitTime = time;
     isWaiting = true;
-    yield return new WaitForSeconds(waitTime);
+    yield return new WaitForSeconds(time);
     isWaiting = false;
   }
 

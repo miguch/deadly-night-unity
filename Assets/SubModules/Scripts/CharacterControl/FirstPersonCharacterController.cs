@@ -68,6 +68,11 @@ namespace com.ImmersiveMedia.CharacterControl
       StartCoroutine(RefillStamina());
     }
 
+    public void ReleaseMouse() {
+      Cursor.visible = true;
+      Cursor.lockState = CursorLockMode.Confined;
+    }
+
     protected override void Update()
     {
       base.Update();

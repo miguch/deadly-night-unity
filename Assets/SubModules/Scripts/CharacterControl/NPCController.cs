@@ -17,6 +17,10 @@ namespace com.ImmersiveMedia.CharacterControl
             SetInteraction(interactable);
         }
 
+        public void ClearInteractable() 
+        {
+            SetInteraction(null);
+        }
 
         protected override void InteractionSelectionLoop()
         {

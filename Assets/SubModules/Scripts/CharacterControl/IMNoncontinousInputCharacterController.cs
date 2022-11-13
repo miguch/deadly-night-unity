@@ -131,6 +131,10 @@ namespace com.ImmersiveMedia.CharacterControl
 
                 damager.Activated = false; // Turn of the damager while the character is walking to it's target
                 mover.StartMovementRoutine(selectedInteractable.transform.position, selectedInteractable.InteractionDistance);
+            } else {
+                selectedInteractable = null;
+                mover.Stop();
+                anim.SetBool("Stopped", false);
             }
         }
 

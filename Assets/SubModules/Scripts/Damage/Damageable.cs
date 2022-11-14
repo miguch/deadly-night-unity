@@ -65,7 +65,6 @@ namespace com.ImmersiveMedia.Damage
                 // If health is less than zero raise the death event
                 if (health <= 0f)
                 {
-                    Debug.Log("dead!");
                     onDeath?.Invoke();
                 } else {
                     if (Random.Range(0.0f, 1.0f) < onAttackedProbability) {

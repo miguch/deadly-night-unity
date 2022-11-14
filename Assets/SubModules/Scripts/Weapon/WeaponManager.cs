@@ -110,6 +110,10 @@ public class WeaponManager : MonoBehaviour
       {
         MeleeEquipped = true;
       }
+      else if (rangeActive)
+      {
+        RangeEquipped = true;
+      }
     }
     if (Input.GetButtonDown("Fire1"))
     {
@@ -121,7 +125,7 @@ public class WeaponManager : MonoBehaviour
         animator.SetTrigger("meleeAttack");
         onMeleeAttack?.Invoke();
       }
-      if (rangeEquipped && 
+      if (rangeEquipped &&
         !animator.GetCurrentAnimatorStateInfo(0).IsName("RangeAttack") &&
         !animator.GetNextAnimatorStateInfo(0).IsName("RangeAttack") &&
         firstPersonCharacterController.ConsumeStamina(rangeStamina, 0.8f))

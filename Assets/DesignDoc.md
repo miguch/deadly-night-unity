@@ -7,7 +7,7 @@
 ### High Level
 
 - Single-Player first person game
-- The player can walk around the environment
+- The player can walk or sprint around the environment
 - The player can open doors to find hidden items
 - The player can use a katana to strike the troll
 - The player can use a rifle to shoot at the troll
@@ -26,9 +26,13 @@ MC is a traveller exploring an ancient cemetery site. He witnessed another trave
       - Range weapon (rifle)
       - Melee weapon (katana)
   - Weapons can be switched or unequipped by pressing E
+- The player has a limited amount of stamina
+  - The player needs to have enough stamina to sprint or attack
+  - Stamina refill gradually when the player is idle or walking
 - The player must kill the giant troll
   - Rifle can be used to shoot at the troll
   - Katana can be used to attack the troll in short distance
+  - 10 katana hits or 20 rifle hits is required to kill the troll
 - The player must manage to stay alive
   - The troll attacks the player when the distance is close
 - The player can interact with objects like doors to search for hidden items

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using com.ImmersiveMedia.Damage;
 using UnityEngine;
 using UnityEngine.Events;
+using com.ImmersiveMedia.CharacterControl;
 
 public class WeaponManager : MonoBehaviour
 {
+  [SerializeField] Transform bulletSpawnPoint;
   [SerializeField] private bool rangeActive = false;
   [SerializeField] private bool meleeActive = false;
   [SerializeField] private bool rangeEquipped = false;
@@ -21,6 +23,13 @@ public class WeaponManager : MonoBehaviour
   [SerializeField] public UnityEvent onRangeAttack;
 
   [SerializeField] Animator animator;
+  [SerializeField] GameObject bulletPrefab;
+
+  [SerializeField] float meleeStamina = 20;
+  [SerializeField] float rangeStamina = 5;
+
+  [SerializeField] FirstPersonCharacterController firstPersonCharacterController;
+
 
   public bool RangeActive
   {
@@ -104,10 +113,22 @@ public class WeaponManager : MonoBehaviour
     }
     if (Input.GetButtonDown("Fire1"))
     {
-      if (meleeEquipped && !animator.GetCurrentAnimatorStateInfo(0).IsName("MeleeAttack") && !animator.GetNextAnimatorStateInfo(0).IsName("MeleeAttack"))
+      if (meleeEquipped &&
+        !animator.GetCurrentAnimatorStateInfo(0).IsName("MeleeAttack") &&
+        !animator.GetNextAnimatorStateInfo(0).IsName("MeleeAttack") &&
+        firstPersonCharacterController.ConsumeStamina(meleeStamina, 1.2f))
       {
         animator.SetTrigger("meleeAttack");
         onMeleeAttack?.Invoke();
+      }
+      if (rangeEquipped && 
+        !animator.GetCurrentAnimatorStateInfo(0).IsName("RangeAttack") &&
+        !animator.GetNextAnimatorStateInfo(0).IsName("RangeAttack") &&
+        firstPersonCharacterController.ConsumeStamina(rangeStamina, 0.8f))
+      {
+        animator.SetTrigger("rangeAttack");
+        onRangeAttack?.Invoke();
+        Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
       }
     }
     if (meleeEquipped)

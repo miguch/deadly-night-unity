@@ -154,5 +154,20 @@ namespace com.ImmersiveMedia.CharacterControl
       }
     }
 
+    public bool ConsumeStamina(float amount, float holdTime) {
+      if (stamina < amount) {
+        return false;
+      }
+      stamina -= amount; 
+      staminaBar.SetHealthBarPercentage(stamina / maxStamina);
+      IEnumerator restoreRefill() {
+        staminaRefillable = false;
+        yield return new WaitForSeconds(holdTime);
+        staminaRefillable = true;
+      }
+      StartCoroutine(restoreRefill());
+      return true;
+    }
+
   }
 }

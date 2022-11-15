@@ -32,7 +32,7 @@ MC is a traveller exploring an ancient cemetery site. He witnessed another trave
 - The player must kill the giant troll
   - Rifle can be used to shoot at the troll
   - Katana can be used to attack the troll in short distance
-  - 10 katana hits or 20 rifle hits is required to kill the troll
+  - 20 katana hits or 40 rifle hits is required to kill the troll
 - The player must manage to stay alive
   - The troll attacks the player when the distance is close
 - The player can interact with objects like doors to search for hidden items

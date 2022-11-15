@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 1
-  damageAmount: 5
+  damageAmount: 2.5
   damageableSets: 01000000
   onDamage:
     m_PersistentCalls:

@@ -33,5 +33,11 @@ public class Hints : MonoBehaviour
     subtitle.ShowSubtitle();
     audioSource.clip = katanaClip;
     audioSource.Play();
+
+    yield return new WaitForSeconds(2.3f);
+
+    subtitle.SetContent("Press [Tab] to see control guide");
+    subtitle.SetTime(3f);
+    subtitle.ShowSubtitle();
   }
 }

@@ -86,8 +86,9 @@ namespace com.ImmersiveMedia.Damage
                         onAttacked?.Invoke();
                     }
                 }
-
-                StartCoroutine(OverlayRoutine());
+                if (bloodOverlay) {
+                    StartCoroutine(OverlayRoutine());
+                }
             }
             StartCoroutine(damageDebounce.Invoke(damageDebounceTime));
             return true;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using static com.ImmersiveMedia.Enums.InteractionEnums;
 
 namespace com.ImmersiveMedia.Damage
@@ -24,6 +25,11 @@ namespace com.ImmersiveMedia.Damage
         [SerializeField] List<DamageableSet> damagableSets; // The list of Damageable sets this object belongs to.
         [SerializeField] float damageDebounceTime; // The amount of seconds in which damage can be triggered once, this is because every time the troll swing the mace it will collide with player twice
 
+        [SerializeField] float overlayHoldTime = 0.4f;
+        [SerializeField] float overlayFadeTime = 0.7f;
+        [SerializeField] float overlayMaxAlpha = 0.6f;
+        [SerializeField] Image bloodOverlay;
+
         private Debounce damageDebounce = new Debounce();
 
         private float health; // The current health of the the object
@@ -40,6 +46,15 @@ namespace com.ImmersiveMedia.Damage
         {
             health = totalHealth;
             onHealthPercentChange?.Invoke(Health / totalHealth);
+        }
+
+        private IEnumerator OverlayRoutine() {
+            bloodOverlay.color = new Color(bloodOverlay.color.r, bloodOverlay.color.g, bloodOverlay.color.b, overlayMaxAlpha);
+            yield return new WaitForSeconds(overlayHoldTime);
+            while(bloodOverlay.color.a > 0) {
+                bloodOverlay.color = new Color(bloodOverlay.color.r, bloodOverlay.color.g, bloodOverlay.color.b, bloodOverlay.color.a - 1f / 255);
+                yield return new WaitForSeconds(overlayFadeTime / (overlayMaxAlpha * 255));
+            }
         }
 
         /// <summary>
@@ -70,6 +85,9 @@ namespace com.ImmersiveMedia.Damage
                     if (Random.Range(0.0f, 1.0f) < onAttackedProbability) {
                         onAttacked?.Invoke();
                     }
+                }
+                if (bloodOverlay) {
+                    StartCoroutine(OverlayRoutine());
                 }
             }
             StartCoroutine(damageDebounce.Invoke(damageDebounceTime));

@@ -31,7 +31,6 @@ namespace com.ImmersiveMedia.Damage
                 {
                     // Intersect the sets of damageable and damager 
                     var intersection = damageable.DamagableSets.Intersect(damageableSets);
-
                     // If the intersection of the sets count is greater than zero that means this damage can damage it
                     if (intersection.Count() > 0 && damageable.Activated)
                     {

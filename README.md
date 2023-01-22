@@ -1,5 +1,7 @@
 # INFSCI 2955 Project
 
+[Deadly Night by miguch (itch.io)](https://miguch.itch.io/deadly-night)
+
 ## Deliverable 1: Intro Cutscene
 
 `Assets/SubModules/OpeningScene/Scenes/OpenScene.unity`
